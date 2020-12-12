@@ -68,6 +68,7 @@ Conectarse remotamente al robot usando celular
    Si no esta cargada la conexión se debe seleccionar en conexión rápida y entrar, sino puede utilizarse del menu de las recientes utilizadas
 
 .. image:: ../source/4_.png
+   :width: 300px
 
 4. ejecutar el comando:
 
