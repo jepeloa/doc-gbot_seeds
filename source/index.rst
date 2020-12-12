@@ -12,7 +12,7 @@ Documentacion gbot_seeds
 
 .. image:: ../source/2_.png
 
-Indices and tables
+Indice
 ==================
 
 * :ref:`genindex`
@@ -27,7 +27,7 @@ Indices and tables
 Pasos a seguir para iniciar el sistema
 **************************************
 
-El sistema cuanta con un robot y un joystick. El robot debe encenderse primero siguiendo los pasos que se detallan en encendido del robot.
+El sistema cuenta con un robot y un joystick. El robot debe encenderse primero siguiendo los pasos que se detallan en encendido del robot.
 Una ves completado los pasos del encendido del robot puede iniciarse el encendido del joystick. Se deben respetar estos pasos si se quiere iniciar correctamente los nodos del sistema
 
 **************************************
@@ -168,5 +168,87 @@ IMPORTANTE:
 
 El control tiene un mecanismo de seguridad, si no se aprieta la "x" y se mantiene presionado este boton el robot no se movera. Presionando la "x" y moviendo el stick izquierdo del joystick el robot se movera en proporcion a cuanto se presione el mando.
 
+**************************************
+Apagar Joystick desde Notebook
+**************************************
 
+Para apagar el joystick se debera estar conectado a la red WiFi del robot (gbot_seeds) con lo cual el robot debera estar prendido.
+
+Ejecutar el siguiente comando:
+
+::
+
+  ssh -l pi raspberrypi.local
+
+
+Contraseña : raspberry.
+
+Una ves dentro del sistema linux del Joystick ejecutar:
+
+::
+
+  sudo systemctl stop robot.service
+  sudo shutdown now
+
+
+**************************************
+Apagar robot desde Notebook
+**************************************
+
+Para apagar el robot se debera estar conectado a la red WiFi del robot (gbot_seeds) 
+
+Ejecutar el siguiente comando:
+
+::
+
+  ssh -l root 192.168.1.105
+
+
+Contraseña : odroid
+
+Una ves dentro del sistema linux del robot ejecutar:
+
+::
+
+  sudo systemctl stop robot.service
+  sudo shutdown now
+
+**************************************
+Grabar video (solo celular)
+**************************************
+
+Para grabar video es importante hacerlo desde un celular ya que debemos ir acompañando el robot y cortando los archivos en cada una de las parcelas. Lo mas indicado es hacerlo con el JuiceSSH
+
+Pasos a seguir:
+
+1-Apagar el uso de datos desde el celular
+2-Conectarse a la red wifi gbot_seeds, contraseña: semilleros
+3-abrir una sesion con el JuiceSSH a la IP192.168.1.105, usuario:root contraseña:odroid
+4- una ves dentro del sistema linux del robot ejecutar el siguiente comando:
+
+::
+
+  cd /media/NAS1
+
+Este ultimo comando nos posiciona dentro del disco rigido de 256GB para grabar.
+
+IMPORTANTE:
+-----------
+
+Debemos asegurarnos que estamos dentro de /media/NAS1, ya que de estar en otra ubicacion corremos el riezgo de guardar en la particion del sistema y que se corte la grabacion ademas de poder generar inestabilidad en el sistema por falta de memoria.
+
+5-Una ves dentro del directorio de grabacion ejecutar el siguiente comando
+
+::
+
+  cd rosbag record -a
+
+hecho esto automaticamente el sistema comenzara a grabar la informacion dentro de la ubicacion seleccionada
+
+6-Para detener la grabacion es necesario enviar ctrl-C, para hacer esto el JuiceSSH dispone de caracteres especiales que se pueden acceder tocando la pantalla. Es necesario antes de seleccionar el ctrl dentro del JuiceSSH tocar la flecha hacia arriba para las mayusculas y luego si tocar control y finalmente "C".
+
+TIP
+___
+
+Se puede acceder a estos comandos si ya fueron tipeados antes con la tecla hacia arriba y hacia bajo sin necesidad de volver a tipear cada uno de los comandos.
   
