@@ -68,6 +68,7 @@
 <li><a class="reference internal" href="#id5" id="id24">IMPORTANTE</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#cambiar-velocidad-solo-notebook" id="id25">Cambiar velocidad (solo notebook)</a></li>
 </ul>
 </li>
 </ul>
@@ -289,6 +290,44 @@ están correctamente sincronizados. Para esto debemos estar conectados con una n
 <h3><a class="toc-backref" href="#id24">IMPORTANTE</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Se puede acceder a estos comandos si ya fueron utilizados antes con la tecla hacia arriba y hacia bajo sin necesidad de volver a ejecutar cada uno.</p>
 </div>
+</div>
+<div class="section" id="cambiar-velocidad-solo-notebook">
+<h2><a class="toc-backref" href="#id25">Cambiar velocidad (solo notebook)</a><a class="headerlink" href="#cambiar-velocidad-solo-notebook" title="Permalink to this headline">¶</a></h2>
+<p>El cambio de velocidad requiere de modificar los archivos de configuración en el nodo del Joystick. Para esto, como siempre, es necesario que el robot este prendido
+y con con ROS en funcionamiento (ver apartado de encendido del robot)</p>
+<ol class="arabic simple">
+<li>Conectarse al wifi <strong>gbot_seeds</strong>, la contraseña es: <strong>semilleros</strong></li>
+</ol>
+<p>2. Abrir una consola y ejecutar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">l</span> <span class="n">pi</span> <span class="n">raspberrypi</span><span class="o">.</span><span class="n">local</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>La contraseña es <strong>raspberry</strong>, en este momento estamos ingresando al terminal del Joystick</li>
+<li>Dentro del terminal del Joystick ejecutar</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roscd</span> <span class="n">teleop_twist_joy</span>
+<span class="n">cd</span> <span class="n">config</span>
+<span class="n">sudo</span> <span class="n">mcedit</span> <span class="n">ps3</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p>Password: <strong>raspberry</strong></p>
+<ol class="arabic simple" start="5">
+<li>El archivo de configuración tiene el siguiente aspecto:</li>
+</ol>
+<img alt="_images/6_.png" src="_images/6_.png" />
+<p>Las lineas a modificar son <strong>scale_linear</strong> para modificar la velocidad lineal, y <strong>scale_angular</strong> para modificar la velocidad angular.
+Las unidades de estas velocidades son en m/s para la velocidad lineal, y en rad/s para la velocidad angular.</p>
+<ol class="arabic simple" start="6">
+<li>Una vez hechas las modificaciones grabar el archivo presionando la tecla F2 y ejecutar los siguientes comandos:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">stop</span> <span class="n">robot</span><span class="o">.</span><span class="n">service</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">robot</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li>esperar entre 30 y 60 segundos que el sistema se vuelva a sincronizar y usar el Joystick. Desde el momento en que el robot responde ya trabajará con las nuevas velocidades.</li>
+</ol>
 </div>
 </div>
 

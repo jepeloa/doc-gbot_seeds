@@ -290,3 +290,46 @@ IMPORTANTE
 
 Se puede acceder a estos comandos si ya fueron utilizados antes con la tecla hacia arriba y hacia bajo sin necesidad de volver a ejecutar cada uno.
   
+**************************************
+Cambiar velocidad (solo notebook)
+**************************************
+El cambio de velocidad requiere de modificar los archivos de configuración en el nodo del Joystick. Para esto, como siempre, es necesario que el robot este prendido 
+y con con ROS en funcionamiento (ver apartado de encendido del robot)
+
+1. Conectarse al wifi **gbot_seeds**, la contraseña es: **semilleros**
+
+2. Abrir una consola y ejecutar:
+::
+
+  ssh -l pi raspberrypi.local
+
+3.  La contraseña es **raspberry**, en este momento estamos ingresando al terminal del Joystick
+
+4. Dentro del terminal del Joystick ejecutar 
+
+::
+
+  roscd teleop_twist_joy
+  cd config
+  sudo mcedit ps3.config.yaml
+
+Password: **raspberry**
+
+5. El archivo de configuración tiene el siguiente aspecto:
+
+.. image:: ../source/6_.png
+
+Las lineas a modificar son **scale_linear** para modificar la velocidad lineal, y **scale_angular** para modificar la velocidad angular.
+Las unidades de estas velocidades son en m/s para la velocidad lineal, y en rad/s para la velocidad angular.
+
+6. Una vez hechas las modificaciones grabar el archivo presionando la tecla F2 y ejecutar los siguientes comandos:
+
+::
+
+  sudo systemctl stop robot.service
+  sudo systemctl start robot.service
+
+7. esperar entre 30 y 60 segundos que el sistema se vuelva a sincronizar y usar el Joystick. Desde el momento en que el robot responde ya trabajará con las nuevas velocidades.
+  
+
+
