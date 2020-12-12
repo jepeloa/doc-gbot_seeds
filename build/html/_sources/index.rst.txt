@@ -279,7 +279,7 @@ Debemos asegurarnos que estamos dentro de /media/NAS1, ya que de estar en otra u
 
 ::
 
-  cd rosbag record -a
+  cd rosbag record /topic
 
 hecho esto automaticamente el sistema comenzara a grabar la informacion dentro de la ubicacion seleccionada
 
