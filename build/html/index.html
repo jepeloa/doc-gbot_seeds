@@ -57,14 +57,15 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#conectarse-remotamente-al-robot-usando-celular" id="id10">Conectarse remotamente al robot usando celular</a></li>
-<li><a class="reference internal" href="#chequeo-de-camaras-solo-notebook" id="id11">Chequeo de camaras (solo notebook)</a><ul>
-<li><a class="reference internal" href="#posibles-errores" id="id12">Posibles Errores</a></li>
+<li><a class="reference internal" href="#conectarse-remotamente-al-robot-usando-notebook-ubuntu" id="id11">Conectarse remotamente al robot usando Notebook (ubuntu)</a></li>
+<li><a class="reference internal" href="#chequeo-de-camaras-solo-notebook" id="id12">Chequeo de camaras (solo notebook)</a><ul>
+<li><a class="reference internal" href="#posibles-errores" id="id13">Posibles Errores</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#iniciar-joystick" id="id13">Iniciar Joystick</a><ul>
-<li><a class="reference internal" href="#id2" id="id14">IMPORTANTE</a></li>
-<li><a class="reference internal" href="#pasos-a-seguir" id="id15">Pasos a seguir:</a></li>
-<li><a class="reference internal" href="#id3" id="id16">IMPORTANTE:</a></li>
+<li><a class="reference internal" href="#iniciar-joystick" id="id14">Iniciar Joystick</a><ul>
+<li><a class="reference internal" href="#id2" id="id15">IMPORTANTE</a></li>
+<li><a class="reference internal" href="#pasos-a-seguir" id="id16">Pasos a seguir:</a></li>
+<li><a class="reference internal" href="#id3" id="id17">IMPORTANTE:</a></li>
 </ul>
 </li>
 </ul>
@@ -111,6 +112,9 @@ Una ves completado los pasos del encendido del robot puede iniciarse el encendid
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="conectarse-remotamente-al-robot-usando-notebook-ubuntu">
+<h2><a class="toc-backref" href="#id11">Conectarse remotamente al robot usando Notebook (ubuntu)</a><a class="headerlink" href="#conectarse-remotamente-al-robot-usando-notebook-ubuntu" title="Permalink to this headline">¶</a></h2>
 <p>1- conectarse al wifi gbot_seeds, la contraseña es “semilleros”</p>
 <p>2- Abrir una consola y ejecutar:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">l</span> <span class="n">root</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.105</span>
@@ -128,7 +132,7 @@ Una ves completado los pasos del encendido del robot puede iniciarse el encendid
 </div>
 </div>
 <div class="section" id="chequeo-de-camaras-solo-notebook">
-<h2><a class="toc-backref" href="#id11">Chequeo de camaras (solo notebook)</a><a class="headerlink" href="#chequeo-de-camaras-solo-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Chequeo de camaras (solo notebook)</a><a class="headerlink" href="#chequeo-de-camaras-solo-notebook" title="Permalink to this headline">¶</a></h2>
 <p>Una ves que el robot ha iniciado si todo funciona de forma correcta, deberia levantar todos los perifericos de hardware (ej. camara RGB, camara estereo, control de motores,encoders,etc). Se debe realizar un chequeo de que la camara se encuentra en funcionamiento lo que ademas permitira corregir angulo y posicion de ser necesario.
 Para esto sera necesario estar conectado al wifi del robot:</p>
 <p>1- conectarse al wifi gbot_seeds, la contraseña es “semilleros”</p>
@@ -141,7 +145,7 @@ Para esto sera necesario estar conectado al wifi del robot:</p>
 <p>3-Ejecutado el comando anterior deberia abrirse el entorno de rviz (ROS Visualization) y se deberia mostrar la camara RGB lateral. (ver imagen)</p>
 <img alt="_images/5_.png" src="_images/5_.png" />
 <div class="section" id="posibles-errores">
-<h3><a class="toc-backref" href="#id12">Posibles Errores</a><a class="headerlink" href="#posibles-errores" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Posibles Errores</a><a class="headerlink" href="#posibles-errores" title="Permalink to this headline">¶</a></h3>
 <p>-Si cuando se ejecuta el comando del punto 2 aparece el error “UNABLE TO CONNECTO TO THE MASTER”, revisar que la red wifi este conectada correctamente al robot.
 -Volver a ejecutar (estando dentro de la consola del robot) los siguientes comandos</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">stop</span> <span class="n">robot</span><span class="o">.</span><span class="n">service</span>
@@ -151,19 +155,19 @@ Para esto sera necesario estar conectado al wifi del robot:</p>
 </div>
 </div>
 <div class="section" id="iniciar-joystick">
-<h2><a class="toc-backref" href="#id13">Iniciar Joystick</a><a class="headerlink" href="#iniciar-joystick" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Iniciar Joystick</a><a class="headerlink" href="#iniciar-joystick" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id14">IMPORTANTE</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">IMPORTANTE</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Asegurarse que antes de encender el interruptor del joystick (llave palanca de la caja blanca) el Joystick de PS3 se encuentra conectado al cable microUSB (ver imagen). Si esto no se hace no funcionara luego y requerira apagar</p>
 <img alt="_images/3_.png" src="_images/3_.png" />
 </div>
 <div class="section" id="pasos-a-seguir">
-<h3><a class="toc-backref" href="#id15">Pasos a seguir:</a><a class="headerlink" href="#pasos-a-seguir" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Pasos a seguir:</a><a class="headerlink" href="#pasos-a-seguir" title="Permalink to this headline">¶</a></h3>
 <p>1-Encender la llave palanca de la caja del joystick. Esto iniciara la placa de control del joystick. El sistema puede tardar hasta 1 minuto en encender y se vinculara automaticamente al robot utilizando un topic de ros (/joy)</p>
 <p>2-Luego de 1 minuto y habiendo cumplido los pasos del apartado encendido del robot, el joystick deberia autovincularse al robot y de esta forma deberia poder manejarse.</p>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id16">IMPORTANTE:</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">IMPORTANTE:</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>El control tiene un mecanismo de seguridad, si no se aprieta la “x” y se mantiene presionado este boton el robot no se movera. Presionando la “x” y moviendo el stick izquierdo del joystick el robot se movera en proporcion a cuanto se presione el mando.</p>
 </div>
 </div>

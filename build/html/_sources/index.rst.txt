@@ -85,7 +85,7 @@ Conectarse remotamente al robot usando celular
   
   exit
 
-
+********************************************************
 Conectarse remotamente al robot usando Notebook (ubuntu)
 ********************************************************
 
