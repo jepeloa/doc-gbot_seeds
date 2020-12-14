@@ -135,7 +135,7 @@ Para esto sera necesario estar conectado al wifi del robot:
 ::
 
   export ROS_MASTER_URI=http://192.168.1.105:11311
-  rosrun rviz rviz rosrun -d /home/javier/Desktop/gbot_seeds.rviz
+  rosrun rviz rviz -d /home/javier/Desktop/gbot_seeds.rviz
 
 3. Ejecutado el comando anterior, deberia abrirse el entorno de rviz (ROS Visualization) y se debería mostrar la cámara RGB lateral. (ver imagen)
 
@@ -280,7 +280,7 @@ Debemos asegurarnos que estamos dentro de /media/NAS1, ya que de estar en otra u
 
 ::
 
-  cd rosbag record /topic
+  rosbag record /side_rgb_camera/image_rect_color /odom
 
 hecho esto automáticamente el sistema comenzara a grabar la información dentro de la ubicación seleccionada
 
